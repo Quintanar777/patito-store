@@ -20,10 +20,13 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<?> findByHawa(@RequestParam String hawa) {
-        log.info("find by HAWA: {}", hawa);
-        return this.productService.findByHawa(hawa)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<?> getProducts(@RequestParam(required = false) String hawa) {
+        log.info("GET /products - filter? HAWA: {}", hawa);
+        if (hawa != null && !hawa.isBlank()) {
+            return this.productService.findByHawa(hawa)
+                    .map(ResponseEntity::ok)
+                    .orElse(ResponseEntity.notFound().build());
+        }
+        return ResponseEntity.ok(this.productService.getAll());
     }
 }

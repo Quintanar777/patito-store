@@ -21,6 +21,11 @@ public class ProductEntity {
 
     private String description;
 
+    private Integer stock;
+
+    @Column(name = "discount_percentage")
+    private Integer discountPercentage;
+
     @Column(name = "created_at")
     private Date createdAt;
 }

@@ -11,5 +11,7 @@ public class Product {
     private String hawa;
     private Double price;
     private String description;
+    private Integer stock;
+    private Integer discountPercentage;
     private Date createdAt;
 }
