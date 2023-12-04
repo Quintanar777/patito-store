@@ -9,14 +9,7 @@ eureka:
 spring:
   application:
     name: gateway-service
-  cloud:
-    gateway:
-      routes:
-        - id: product-service
-          uri: lb://product-service
-          predicates:
-            - Path=/products/**
-        - id: order-service
-          uri: lb://order-service
-          predicates:
-            - Path=/orders/**
+
+security:
+  jwt:
+    secret-key: bWkgY2xhdmUgZXMgbXV5IHNlZ3VyYSAxMjM0NTY3ODkgQUJDYWJj
